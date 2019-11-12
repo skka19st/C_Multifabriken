@@ -16,6 +16,7 @@ namespace C_Multifabriken
         // data tas in från skärmen
         public void InitData()
         {
+            Console.WriteLine("val: beställ bil");
             Console.Write("vilket bilmärke? ");
             bilmarke = Console.ReadLine();
             Console.Write("reg.nr: ");
@@ -25,11 +26,9 @@ namespace C_Multifabriken
         }
 
         // skapar en rad för utskrift av lagrat data
-        public string SkapaUtskriftRad()
+        public void VisaData()
         {
-            string rad = "";
-            rad += "en " + farg + " " + bilmarke + " med regnr " + regnr;
-            return rad;
+            Console.WriteLine($"en {farg} {bilmarke} med regnr {regnr}");
         }       
     }
 }

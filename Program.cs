@@ -7,9 +7,9 @@ namespace C_Multifabriken
     {
         // fyra listor som lagrar beställda varor av en viss artikel
         static private List<cBilar> listaBilar = new List<cBilar>();
-        // List<cBilar> listaGodis = new List<cGodis>();            
-        // List<cBilar> listaPipes = new List<cPipes>();
-        // List<cBilar> listaMjolk = new List<cMjolk>();
+        static private List<cGodis> listaGodis = new List<cGodis>();            
+        static private List<cPipes> listaPipes = new List<cPipes>();
+        static private List<cMjolk> listaMjolk = new List<cMjolk>();
 
         static void Main(string[] args)
         {
@@ -64,38 +64,56 @@ namespace C_Multifabriken
             return menySvar;
         }
         static void BestallBil()
-        {
-            Console.WriteLine("val: beställ bil");
+        {            
             cBilar bil = new cBilar();
             bil.InitData();
             listaBilar.Add(bil);
-            string utskriftsrad = bil.SkapaUtskriftRad();
-            Console.WriteLine(utskriftsrad);
         }
         static void BestallGodis()
         {
-            Console.WriteLine("val: beställ godis");
+            cGodis godisbit = new cGodis();
+            godisbit.InitData();
+            listaGodis.Add(godisbit);           
         }
         static void BestallPipes()
         {
-            Console.WriteLine("val: beställ rör");
+            cPipes pipe = new cPipes();
+            pipe.InitData();
+            listaPipes.Add(pipe); 
         }
         static void BestallMjolk()
         {
-            Console.WriteLine("val: beställ mjölk");
+            cMjolk mjolk = new cMjolk();
+            mjolk.InitData();
+            listaMjolk.Add(mjolk);
         }
         static void ListaBestallning()
         {
             Console.WriteLine("Detta är beställt så här långt:");
-            if (listaBilar.Count > 0)
+
+            // utskrift av beställda bilar
+            foreach (cBilar rad in listaBilar)
             {
-                foreach (cBilar rad in listaBilar)
-                {
-                    string utskriftsrad = rad.SkapaUtskriftRad();
-                    Console.WriteLine(utskriftsrad);
-                }
+                rad.VisaData();
             }
 
+            // utskrift av beställt godis
+            foreach (cGodis rad in listaGodis)
+            {
+                rad.VisaData();
+            }
+
+            // utskrift av beställda rör
+            foreach (cPipes rad in listaPipes)
+            {
+                rad.VisaData();
+            }
+
+            // utskrift av beställd mjölk
+            foreach (cMjolk rad in listaMjolk)
+            {
+                rad.VisaData();
+            }
         }
         static void Avsluta()
         {

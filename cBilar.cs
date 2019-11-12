@@ -16,14 +16,19 @@ namespace C_Multifabriken
         // data tas in från skärmen
         public void InitData()
         {
-            bilmarke = "audi";
-            regnr = "kcy487";
-            farg = "röd";
+            Console.Write("vilket bilmärke? ");
+            bilmarke = Console.ReadLine();
+            Console.Write("reg.nr: ");
+            regnr = Console.ReadLine();
+            Console.Write("färg på bilen? ");
+            farg = Console.ReadLine();
         }
+
         // skapar en rad för utskrift av lagrat data
         public string SkapaUtskriftRad()
         {
-            string rad = "en utskriftsrad är skapad";
+            string rad = "";
+            rad += "en " + farg + " " + bilmarke + " med regnr " + regnr;
             return rad;
         }       
     }

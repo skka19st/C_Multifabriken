@@ -5,6 +5,12 @@ namespace C_Multifabriken
 {
     class Program
     {
+        // fyra listor som lagrar beställda varor av en viss artikel
+        static private List<cBilar> listaBilar = new List<cBilar>();
+        // List<cBilar> listaGodis = new List<cGodis>();            
+        // List<cBilar> listaPipes = new List<cPipes>();
+        // List<cBilar> listaMjolk = new List<cMjolk>();
+
         static void Main(string[] args)
         {
             // loop som avslutas med val '6 - Avsluta'
@@ -60,6 +66,11 @@ namespace C_Multifabriken
         static void BestallBil()
         {
             Console.WriteLine("val: beställ bil");
+            cBilar bil = new cBilar();
+            bil.InitData();
+            listaBilar.Add(bil);
+            string utskriftsrad = bil.SkapaUtskriftRad();
+            Console.WriteLine(utskriftsrad);
         }
         static void BestallGodis()
         {
@@ -75,7 +86,16 @@ namespace C_Multifabriken
         }
         static void ListaBestallning()
         {
-            Console.WriteLine("val: beställ lista");
+            Console.WriteLine("Detta är beställt så här långt:");
+            if (listaBilar.Count > 0)
+            {
+                foreach (cBilar rad in listaBilar)
+                {
+                    string utskriftsrad = rad.SkapaUtskriftRad();
+                    Console.WriteLine(utskriftsrad);
+                }
+            }
+
         }
         static void Avsluta()
         {
